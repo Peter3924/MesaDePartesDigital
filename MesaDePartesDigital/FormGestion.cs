@@ -73,7 +73,7 @@ namespace MesaDePartesDigital
             }
         }
 
-        //revisa el archivo binario uno por uno buscando si hay alguna algo que sea doble
+        //revisa el archivo binario uno por uno buscando si hay algun dato que sea doble
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             string busqueda = txtBuscarDNI.Text.Trim();
@@ -103,7 +103,7 @@ namespace MesaDePartesDigital
                         string asunto = br.ReadString();
                         string fecha = br.ReadString();
 
-                        //compara si el codigo o el DNI coincide con lo que el usuario busco y se conincide, lo muestra
+                        //compara si el codigo o el DNI coincide con lo que el usuario busco, y si conincide, lo muestra
                         if (dni == busqueda || codigo == busqueda)
                         {
                             dgvExpedientes.Rows.Add(codigo, dni, nombres, tipoDoc, asunto, fecha);
@@ -150,7 +150,7 @@ namespace MesaDePartesDigital
                         string codigo1 = dgvExpedientes.Rows[j].Cells[0].Value?.ToString() ?? "";
                         string codigo2 = dgvExpedientes.Rows[j + 1].Cells[0].Value?.ToString() ?? "";
 
-                        //aca se compara alfabeticamente si es mayor a 0 es codigo1 va despues de codigo2 
+                        //aca se compara alfabetica y numéricamente codigo1 y codigo 2, el que es mayor va después
                         if (string.Compare(codigo1, codigo2) > 0)
                         {
 
